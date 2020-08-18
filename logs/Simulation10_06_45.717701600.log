@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-08-18T08:06:45.737509100Z</date>
+  <millis>1597738005737</millis>
+  <nanos>509100</nanos>
+  <sequence>0</sequence>
+  <logger>Simulation</logger>
+  <level>WARNING</level>
+  <class>org.unibl.etf.features.GenericLogger</class>
+  <method>log</method>
+  <thread>31</thread>
+  <message>java.lang.NumberFormatException: For input string: ""</message>
+  <exception>
+    <message>java.lang.NumberFormatException: For input string: ""</message>
+    <frame>
+      <class>org.unibl.etf.features.GenericLogger</class>
+      <method>log</method>
+      <line>23</line>
+    </frame>
+    <frame>
+      <class>Simulation</class>
+      <method>lambda$startWatching$2</method>
+      <line>126</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>forEach</method>
+      <line>1510</line>
+    </frame>
+    <frame>
+      <class>Simulation</class>
+      <method>startWatching</method>
+      <line>95</line>
+    </frame>
+    <frame>
+      <class>Simulation</class>
+      <method>lambda$new$0</method>
+      <line>86</line>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+      <line>832</line>
+    </frame>
+  </exception>
+</record>
+</log>

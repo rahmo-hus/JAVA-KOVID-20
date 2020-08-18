@@ -1,0 +1,13 @@
+Vrijeme trajanja simulacije: 339.714 sekundi
+KREIRANO JE:
+1. 3 kuca
+2. 8 stanovnika od cega je 3 djece, 3 starih i 2 odraslih.
+3. 4 ambulante, te 2 ambulantnih vozila.
+
+STATISTIKA BROJA ZARAZENIH / OPORAVLJENIH
+Ukupno: 0/3
+Djeca: 0/2
+Stariji: 0/1
+Odrasli: 0/0
+Muskarci: 0/2
+Zene: 0/1

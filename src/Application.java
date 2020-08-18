@@ -2,10 +2,6 @@ import org.unibl.etf.features.GenericLogger;
 
 import javax.swing.*;
 import java.io.*;
-import java.util.logging.FileHandler;
-import java.util.logging.Handler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Application implements Serializable {
     private JTextField kidsField;

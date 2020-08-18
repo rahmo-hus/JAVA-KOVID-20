@@ -110,11 +110,12 @@ public class Simulation extends JFrame implements Serializable {
                                         localTemp.setItems(recoveredResident.getXCoordinate(), recoveredResident.getYCoordinate());
                                         residentCoordinates.put(recoveredResident, localTemp);
                                         recoveredResident.setIsRecovered();
+                                        residentMovement.put(recoveredResident, "kuci");
                                         JOptionPane.showMessageDialog(this, "Stanovnik "+recoveredResident.toString()+" se oporavio i vraca se kuci", "Obavijest", JOptionPane.INFORMATION_MESSAGE);
                                         sendHome(recoveredResident, false);
                                     }
                                     catch (NoSuchElementException noSuchElementException){
-                                        Logger.getLogger(Simulation.class.getName()).log(Level.OFF, noSuchElementException.fillInStackTrace().toString());
+                                        GenericLogger.log(Simulation.class, noSuchElementException);
                                     }
                                 }
                                 infectedCountField.setText("Zaraženi: " + temp);
@@ -174,6 +175,7 @@ public class Simulation extends JFrame implements Serializable {
                             JOptionPane.showMessageDialog(this, infectedOrNull.toString()+"("+infectedOrNull.getXCoordinate()+","+infectedOrNull.getYCoordinate()+")", "Pošalji ambulantu", JOptionPane.WARNING_MESSAGE);
                             SurveillanceSystem.addAlarm(infectedOrNull.getXCoordinate(),infectedOrNull.getYCoordinate(), infectedOrNull.getHouseID());
                             infectedResidents.push(infectedOrNull);
+                            residentMovement.put(infectedOrNull, "stop");
                             infectedOrNull.setInfected(true);
                             sendHome(infectedOrNull, true);
                         }
@@ -187,7 +189,7 @@ public class Simulation extends JFrame implements Serializable {
         }
 
     }
-    private void sendHome(Resident infectedResident, boolean everyone){ //sends home all residents except infected one
+    private void sendHome(Resident infectedResident, boolean everyone){
         House house = getHouseByID(infectedResident.getHouseID());
         List<Resident> residentsToReturnHome = everyone ? allResidents.stream().filter(r-> r.getHouseID().equals(house.getId()) && !r.equals(infectedResident)).collect(Collectors.toList()) : Arrays.asList(infectedResident);
         residentsToReturnHome.forEach(resident -> {
@@ -228,6 +230,7 @@ public class Simulation extends JFrame implements Serializable {
                         GenericLogger.log(Simulation.class, e);                    }
 
                 }
+                residentMovement.put(resident,"kuci");
                 house.addResidents(resident);
                 residentCoordinates.remove(resident);
             }).start();
